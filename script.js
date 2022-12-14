@@ -26,6 +26,7 @@
 
 //Profil
     //Registrera konstverk
+    //Skicka konstverk
     //Lista på ägda konstverk
 
 //API

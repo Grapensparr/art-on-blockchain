@@ -6,15 +6,20 @@ export default class User {
         this.ownedArt = [];
     }
 
-    sendArt() {
-        //Metod för att skicka konstverk
+    createUniqueUserID() {
+        //Skapa unikt ID för användare
     }
 
     listOwnedArt() {
         //Metod för att visa ägda konstverk.
     }
-
-    createUniqueUserID() {
-        //Skapa unikt ID för användare
+    
+    sendArt() {
+        //Metod för att skicka konstverk
+        //
     }
+
+    
+
+    
 }

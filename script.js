@@ -1,3 +1,5 @@
+import User from './user.js';
+
 //Klass för användare - Kristoffer
     //Array med konstverk som användaren äger
     //Kan skicka konstverket
@@ -21,9 +23,9 @@
     //Ägare
     //Tillverkningsår
 
-    fetchArtInfo() {
-        //Funktion som fetchar manYear och artImage från API.
-    }
+    // fetchArtInfo() {
+    //     //Funktion som fetchar manYear och artImage från API.
+    // }
 
 //Inloggningsfunktion/Utloggning - Jacob
 
@@ -36,4 +38,10 @@
 
 //API
 //https://www.programmableweb.com/api/metropolitan-museum-art-met-collection-rest-api-v10
+
+let kristoffer = new User("Kristoffer", "hejhej");
+
+kristoffer.listOwnedArt();
+
+console.log(kristoffer);
 

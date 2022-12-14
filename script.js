@@ -24,7 +24,9 @@
 
 //Skapa användare
 
-//Registrera konstverk
+//Profil
+    //Registrera konstverk
+    //Lista på ägda konstverk
 
 //API
 //https://www.programmableweb.com/api/metropolitan-museum-art-met-collection-rest-api-v10

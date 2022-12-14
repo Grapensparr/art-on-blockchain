@@ -1,18 +1,19 @@
-//Klass för användare
+//Klass för användare - Kristoffer
     //Array med konstverk som användaren äger
     //Kan skicka konstverket
     //Kan ta emot konstverk
     //Kan registrera konstverk
     //Kan få ut lista på vilka konstverket äger
 
-//Användarlista
+//Användarlista - Kristoffer
 
-//Producera block
+//Producera block - Sara
+    //Avnänd local storage som databas
 
 //Valideringsfunktion
     //Registreringar av konstverk på användare
 
-//Klass för konstverk
+//Klass för konstverk - Liza
     //ID
     //Vem som äger verket
     //Titel
@@ -20,11 +21,15 @@
     //Ägare
     //Tillverkningsår
 
-//Inloggningsfunktion/Utloggning
+    fetchArtInfo() {
+        //Funktion som fetchar manYear och artImage från API.
+    }
+
+//Inloggningsfunktion/Utloggning - Jacob
 
 //Skapa användare
 
-//Profil
+//Profil - Alexander och Felipe
     //Registrera konstverk
     //Skicka konstverk
     //Lista på ägda konstverk

@@ -14,16 +14,27 @@
     //Registreringar av konstverk på användare
 
 //Klass för konstverk - Liza
-    //ID
-    //Vem som äger verket
-    //Titel
-    //Pris
-    //Ägare
-    //Tillverkningsår
+import ArtList from "./artList.js"
+import Art from "./art.js"
 
-    fetchArtInfo() {
+let createTitle = document.getElementById("createTitle")
+let createOwner = document.getElementById("createOwner")
+let createPrice = document.getElementById("createPrice")
+let createManYear = document.getElementById("createManYear")
+let createArtImage = document.getElementById("createArtImage")
+let createArtBtn = document.getElementById("createArtBtn")
+
+createArtBtn.addEventListener('click', () => {
+    artCollection.addArt(new Art(createTitle.value, createOwner.value, createPrice.value, createManYear.value, createArtImage.files))
+    console.log("artCollection", artCollection)
+})
+
+let artCollection = new ArtList()
+console.log("artList", artCollection)
+
+    //fetchArtInfo() {
         //Funktion som fetchar manYear och artImage från API.
-    }
+    //}
 
 //Inloggningsfunktion/Utloggning - Jacob
 

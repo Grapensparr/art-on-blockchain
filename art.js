@@ -1,22 +1,14 @@
 export default class Art {
-    constructor(title, owner, id, price, manYear, artImage) {
-        this.title = title,
-        this.owner = owner,
-        this.id = id,
-        this.price = price,
-        this.manYear = manYear,
-        this.artImage = artImage
+    constructor(title, owner, price, manYear, artImage) {
+        this.title = title;
+        this.owner = owner;
+        this.id = self.crypto.randomUUID();
+        this.price = price;
+        this.manYear = manYear;
+        this.artImage = artImage;
     }
 
-    createUniqueArtID() {
-        //Skapa ID för konstverket.
-    }
-
-    getOwner() {
+/*     getOwner() {
         //Funktion som sätter inloggad användare som owner på konstverket.
-    }
-
-    registerArt() {
-        //Metod för att registrera konstverk
-    }
+    } */
 }

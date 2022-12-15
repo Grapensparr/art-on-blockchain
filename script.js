@@ -1,11 +1,17 @@
 import User from './user.js';
 import Transfer from './transfer.js';
-import Chain from '.chain.js';
+import Chain from './chain.js';
 import UserList from './userList.js';
+
+
 
 const validateBtn = document.getElementById("validateBtn");
 const editBtn = document.getElementById("editBtn");
 const transferArtBtn = document.getElementById("transferArtBtn");
+const sendingUser = document.getElementById("sendingUser");
+const receiver= document.getElementById("receiver");
+const artID = document.getElementById("artID");
+const showTransferList = document.getElementById("showTransferList");
 
 //Klass för användare - Kristoffer
     //Array med konstverk som användaren äger
@@ -67,24 +73,44 @@ validateBtn.addEventListener("click", () => {
 
 editBtn.addEventListener("click", () => {
     //Vi måste byta ut .work = 20 till något annat. Osäker på vad.
-    artChain.artChain[2].data.work = 20;
+    artChain.artChain[2].data = 20;
 
     printTransfers();
 });
 
 transferArtBtn.addEventListener("click", () => {
 
-    let newArtTransfer = {
+    let newTransfer = {
         //Här behöver vi lägga in egna värden. Osäker på vad.
-        user: user.value,
-        work: Number(work.value)
+        from: sendingUser.value,
+        to: receiver.value,
+        artID: artID.value
     }
 
-    artChain.addtransfer(new transfer(newtransfer));
+    // console.log(newArtTransfer);
+
+    artChain.addTransfer(new Transfer(newTransfer));
 
 
     setTimeout(printTransfers, 100);
 })
+
+function printTransfers() {
+    
+    showTransfersList.innerHTML = "";
+
+    artChain.artChain.map(transfers => {
+        let transferBox = document.createElement("div");
+        transferBox.style.border = "1px solid black";
+        transferBox.style.padding = "20px";
+        transferBox.style.margin = "20px";
+
+        transferBox.id = transfers.id;
+        transferBox.innerHTML = "<p>Här ska det skrivas ut info om varje block</p>";
+
+        showTransfersList.appendChild(transferBox);
+    })
+}
 
 
 

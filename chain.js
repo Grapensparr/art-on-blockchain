@@ -18,7 +18,7 @@ export default class Chain {
     async addTransfer(newTransfer) {
         newTransfer.prevHash = this.getLatestTime().hash;
         newTransfer.mineBlock(this.difficulty);
-        this.artChain.push(newTime);
+        this.artChain.push(newTransfer);
     }
 
     isChainValid() {

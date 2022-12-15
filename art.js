@@ -3,6 +3,7 @@ export default class Art {
         this.title = title;
         this.owner = owner;
         this.id = self.crypto.randomUUID();
+        localStorage.setItem("artId", this.id);
         this.price = price;
         this.manYear = manYear;
         this.artImage = artImage;

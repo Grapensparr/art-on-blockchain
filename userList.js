@@ -1,4 +1,4 @@
-export default class userList {
+export default class UserList {
     constructor(name) {
         this.name = name,
         this.users = [];

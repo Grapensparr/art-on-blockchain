@@ -1,4 +1,5 @@
 import User from './user.js';
+import UserList from './userList.js';
 
 //Klass för användare - Kristoffer
     //Array med konstverk som användaren äger
@@ -44,4 +45,10 @@ let kristoffer = new User("Kristoffer", "hejhej");
 kristoffer.listOwnedArt();
 
 console.log(kristoffer);
+
+let currentUsers = new UserList("Site users");
+console.log("currentUsers", currentUsers);
+
+currentUsers.addUser(kristoffer);
+console.log("currnetUsers", currentUsers);
 

@@ -25,7 +25,7 @@ export default class User {
 
     }
     
-    sendArt() {
+    //transferArt() {
         //Metod för att skicka konstverk
         
         //Användare väljer art i rullista
@@ -35,7 +35,7 @@ export default class User {
         //Användare klikcar på skicka
             //Object dras ut från skickande användares array och pushas till mottagande användares array
             //Detta sparas i ett block
-    }
+    //}
 
     
 

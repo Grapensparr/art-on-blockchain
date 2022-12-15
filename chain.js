@@ -1,4 +1,4 @@
-import Send from './send.js';
+import Transfer from './transfer.js';
 
 export default class Chain {
     constructor() {
@@ -8,16 +8,16 @@ export default class Chain {
 
     createGenesisBlock() {
         //Här behöver vi andra ingående. Gissar på "from", "to" och "artId"
-        return new Send({"user": "Genesis", "work": 0});
+        return new Transfer({"user": "Genesis", "work": 0});
     }
 
     getLatestTime() {
         return this.artChain[this.artChain.length -1];
     }
 
-    async addSend(newSend) {
-        newSend.prevHash = this.getLatestTime().hash;
-        newSend.mineBlock(this.difficulty);
+    async addTransfer(newTransfer) {
+        newTransfer.prevHash = this.getLatestTime().hash;
+        newTransfer.mineBlock(this.difficulty);
         this.artChain.push(newTime);
     }
 

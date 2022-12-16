@@ -3,11 +3,7 @@ export default class User {
         this.name = name,
         this.id = self.crypto.randomUUID();
         this.password = password,
-        this.ownedArt = [
-            {"title": "Mona Lisa", "owner": "Kristoffer", "id": "asdlfkjlxkcjdf", "price": 9999999, "manYear": 1793, "artImage": null},
-            {"title": "BAYC #123", "owner": "Kristoffer", "id": "asdfasdfasdfasdf", "price": 1000000, "manYear": 2018, "artImage": null},
-            {"title": "En jättefin teckning", "owner": "Kristoffer", "id": "bksdkfdlsjgfsdlkhglfgj", "price": 10, "manYear": 1793, "artImage": null}
-        ];
+        this.ownedArt = [];
     }
 
     listOwnedArt() {

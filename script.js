@@ -52,17 +52,46 @@ const showTransferList = document.getElementById("showTransferList");
 //API
 //https://www.programmableweb.com/api/metropolitan-museum-art-met-collection-rest-api-v10
 
-// let kristoffer = new User("Kristoffer", "hejhej");
+let kristoffer = new User("Kristoffer", "hejhej");
 
-// kristoffer.listOwnedArt();
 
-// console.log(kristoffer);
 
-// let currentUsers = new UserList("Site users");
-// console.log("currentUsers", currentUsers);
+console.log(kristoffer);
 
-// currentUsers.addUser(kristoffer);
-// console.log("currnetUsers", currentUsers);
+let currentUsers = new UserList("Site users");
+console.log("currentUsers", currentUsers);
+
+
+
+let kristoffersArt = [
+    {"title": "Mona Lisa", "owner": "Kristoffer", "id": "asdlfkjlxkcjdf", "price": 9999999, "manYear": 1793, "artImage": null},
+    {"title": "BAYC #123", "owner": "Kristoffer", "id": "asdfasdfasdfasdf", "price": 1000000, "manYear": 2018, "artImage": null},
+    {"title": "En jättefin teckning", "owner": "Kristoffer", "id": "bksdkfdlsjgfsdlkhglfgj", "price": 10, "manYear": 1793, "artImage": null}
+];
+
+
+console.log("kristoffersArt", kristoffersArt);
+
+kristoffer.ownedArt = kristoffersArt;
+
+console.log("kristoffer", kristoffer);
+
+let janne = new User("Janne", "hejdå");
+
+console.log("janne", janne);
+
+janne.ownedArt = [
+    {"title": "Stjärnenatt", "owner": "Janne", "id": "fjbpdpdkf", "price": 9999999, "manYear": 1893, "artImage": null},
+    {"title": "Flicka med pärlörhänge", "owner": "Janne", "id": "asdfasdfasdfasdf", "price": 1000000, "manYear": 2018, "artImage": null},
+    {"title": "Kyssen", "owner": "Janne", "id": "bksdkfdlsjgfsdlkhglfgj", "price": 10, "manYear": 1793, "artImage": null}
+];
+
+console.log("janne", janne);
+
+currentUsers.addUser(kristoffer);
+currentUsers.addUser(janne);
+console.log("currnetUsers", currentUsers);
+
 
 let artChain = new Chain();
 
@@ -80,19 +109,28 @@ editBtn.addEventListener("click", () => {
 
 transferArtBtn.addEventListener("click", () => {
 
-    let newTransfer = {
-        //Här behöver vi lägga in egna värden. Osäker på vad.
-        from: sendingUser.value,
-        to: receiver.value,
-        artID: artID.value
-    }
+    let sender = currentUsers.indexOf(o => o.users.name == sendingUser.value);
+    console.log("sender", sender);
 
-    // console.log(newArtTransfer);
+    let receivingUser = receiver.value;
+    console.log("receivingUser", receivingUser);
 
-    artChain.addTransfer(new Transfer(newTransfer));
+    let itemToBeSent = artID.value;
+    console.log("itemToBeSent", itemToBeSent);
+
+    // let newTransfer = {
+    //     //Här behöver vi lägga in egna värden. Osäker på vad.
+    //     from: sendingUser.value,
+    //     to: receiver.value,
+    //     artID: artID.value
+    // }
+
+    // // console.log(newArtTransfer);
+
+    // artChain.addTransfer(new Transfer(newTransfer));
 
 
-    setTimeout(printTransfers, 100);
+    // setTimeout(printTransfers, 100);
 })
 
 function printTransfers() {
@@ -111,6 +149,7 @@ function printTransfers() {
         showTransfersList.appendChild(transferBox);
     })
 }
+
 
 
 

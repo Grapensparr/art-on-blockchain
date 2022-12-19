@@ -115,6 +115,7 @@ let objUsers = [
     {username:"sara", password:"test"},
 ];
  
+document.getElementById("registrateArt").style.display = "none";
 
 //Login Form
     function showLoginForm() {
@@ -169,7 +170,9 @@ loginButton2.addEventListener("click", () => {
     let findUser = objUsers.find(findUser => findUser.username === username.value)
         if (findUser && findUser.password === password.value) {
             //Logged in View?
-        alert("logged in");
+        document.getElementById("aboutContent").style.display = "none";
+      document.getElementById("instructionsContent").style.display = "none";
+      document.getElementById("registrateArt").style.display = "block";
         localStorage.setItem("loginStatus", "loggedIn");
         localStorage.setItem("currentLoggedIn", username.value);
         return;
@@ -188,6 +191,16 @@ closeButton.addEventListener("click", () => {
         //Do nothing
     } else if (loginStatus === "loggedIn") {
       //Logged in view?
+      document.getElementById("aboutContent").style.display = "none";
+      document.getElementById("instructionsContent").style.display = "none";
+      document.getElementById("registrateArt").style.display = "block";
+      logoutButton.addEventListener("click", () => {
+        document.getElementById("aboutContent").style.display = "block";
+        document.getElementById("instructionsContent").style.display = "block";
+        document.getElementById("registrateArt").style.display = "none";
+        localStorage.removeItem("loginStatus");
+        localStorage.removeItem("currentLoggedIn");
+    })
     }
 }
 window.onload = reloadLoginStatus(localStorage.getItem("loginStatus"))

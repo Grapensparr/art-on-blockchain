@@ -4,10 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>ArtBlock</title>
     <script src="script.js" defer type="module"></script>
 </head>
 <body>
-
+    <div class="content">
+        <header>
+            <nav class="nav-bar">
+                <ul class="nav-list">
+                    <li><button class="nav-buttons" type="button">About</a></li>
+                    <li><button class="nav-buttons" type="button">App</a></li>
+                    <li><button class="nav-buttons" id="loginButton1" onclick="showLoginForm()" type="button">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="loginForm">
+            <form id="login">
+                <br>
+                <label>Log in</label><br>
+                <input type="text" id="username" placeholder="Enter Username">
+                <input type="password" id="password" placeholder="Enter Password"><br>
+                <button id="loginButton2">Log in</button><br>
+                
+                <label>Create Account</label><br>
+                      <input  type="text" id="newUser" placeholder="Enter Username">
+                      <input type="text" id="newPassword" placeholder="Enter Password">
+                      <br>
+                      <button id="createButton">Create Account</button>
+                      <button id="closeButton">Close</button>
+                    
+            </form>
+            
+        </div>
+            <div class="about-content">
+                <h2>Leveraging the Power of Blockchain to Transform Art</h2>
+                <p>Our application uses blockchain technology to facilitate the digital storage of art, ensuring the authenticity and ownership of the pieces are securely recorded and easily verifiable. By leveraging blockchains, we provide a transparent and secure platform for collectors, artists, and galleries to buy, sell, and authenticate digital art. Our platform also allows for the seamless transfer of ownership and provenance information, making it easier for collectors to buy and sell with confidence. With our innovative use of blockchain technology, we are revolutionizing the way the art world conducts business and preserving the integrity of the digital art market.            </p>
+            </div>
+            <div class="instructions-content">
+                <h2>Instructions</h2>
+                <p>Step 1: Login using your credentials or sign up</p>
+                <p>Step 2: Access the application by pressing the "App" button</p>
+                <p>Step 3: Take part in changing art forever!</p>
+            </div>
+        <footer class="cookies-bar" id="footer">
+                <p class="cookies-text">This website uses cookies to improve your experience. By using this website, you agree to our use of cookies. Click accept to proceed!</p>
+                <button class="cookies-button" id="cookiesButton" type="button">Accept</button>
+        </footer>
+    </div>
 </body>
 </html>

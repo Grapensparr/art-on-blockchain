@@ -102,7 +102,103 @@ displayArt()
     //}
 
 //Inloggningsfunktion/Utloggning - Jacob
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const loginForm = document.getElementById("loginForm");
+const closeButton = document.getElementById("closeButton");
+const loginButton1 = document.getElementById("loginButton1");
+const loginButton2 = document.getElementById("loginButton2");
+const createButton = document.getElementById("createButton");
 
+ //List of users
+let objUsers = [
+    {username:"sara", password:"test"},
+];
+ 
+
+//Login Form
+    function showLoginForm() {
+        loginButton1.addEventListener("click", () => {
+            document.getElementById("loginForm").style.display = "block";
+          })
+       }
+ 
+
+if (localStorage.getItem("objUsers")) {
+   //Do nothing
+} else {
+    localStorage.setItem('objUsers', JSON.stringify(objUsers));
+}
+
+
+//Create new account
+createButton.addEventListener("click", () => {
+    
+    let newUser = document.getElementById("newUser").value;
+    let newPassword = document.getElementById("newPassword").value;
+    
+
+    if (username == "") {
+        alert("Please enter Username");
+    }
+        else if (password == "") {
+            alert("Please enter Password");
+        }
+       
+        else {      
+            let objUsers = JSON.parse(localStorage.getItem("objUsers"));
+    
+            let newRegister = {
+                username: newUser,
+                password: newPassword
+            };
+
+            objUsers.push(newRegister);
+        
+            localStorage.setItem("objUsers", JSON.stringify(objUsers));
+    
+            alert("Account created!");
+
+            showLoginForm();
+           
+        }
+    })
+
+loginButton2.addEventListener("click", () => { 
+    let objUsers = JSON.parse(localStorage.getItem("objUsers"));
+    let findUser = objUsers.find(findUser => findUser.username === username.value)
+        if (findUser && findUser.password === password.value) {
+            //Logged in View?
+        alert("logged in");
+        localStorage.setItem("loginStatus", "loggedIn");
+        localStorage.setItem("currentLoggedIn", username.value);
+        return;
+    } else {
+        alert("User not found");
+    }
+})
+
+closeButton.addEventListener("click", () => {
+    document.getElementById("loginForm").style.display = "none";
+  })
+
+  function reloadLoginStatus(loginStatus) {
+    let currentLoggedIn = localStorage.getItem("currentLoggedIn");
+    if (loginStatus === null) {
+        //Do nothing
+    } else if (loginStatus === "loggedIn") {
+      //Logged in view?
+    }
+}
+window.onload = reloadLoginStatus(localStorage.getItem("loginStatus"))
+
+
+
+  /// Footer cookies button
+  cookiesButton.addEventListener("click", () => {
+    document.getElementById("footer").style.display = "none";
+  })
+  
 //Skapa användare
 
 //Profil - Alexander och Felipe

@@ -2,104 +2,8 @@ import User from './user.js';
 import Transfer from './transfer.js';
 import Chain from './chain.js';
 import UserList from './userList.js';
-
-
-
-const validateBtn = document.getElementById("validateBtn");
-const editBtn = document.getElementById("editBtn");
-const transferArtBtn = document.getElementById("transferArtBtn");
-const sendingUser = document.getElementById("sendingUser");
-const receiver= document.getElementById("receiver");
-const artID = document.getElementById("artID");
-const showTransferList = document.getElementById("showTransferList");
-
-//Klass för användare - Kristoffer
-    //Array med konstverk som användaren äger
-    //Kan skicka konstverket
-    //Kan ta emot konstverk
-    //Kan registrera konstverk
-    //Kan få ut lista på vilka konstverket äger
-
-//Användarlista - Kristoffer
-
-//Producera block - Sara
-    //Avnänd local storage som databas
-
-//Valideringsfunktion
-    //Registreringar av konstverk på användare
-
-//Klass för konstverk - Liza
-    //ID
-    //Vem som äger verket
-    //Titel
-    //Pris
-    //Ägare
-    //Tillverkningsår
-
-    // fetchArtInfo() {
-    //     //Funktion som fetchar manYear och artImage från API.
-    // }
-
 import ArtList from "./artList.js"
 import Art from "./art.js"
-
-let createTitle = document.getElementById("createTitle")
-let createOwner = document.getElementById("createOwner")
-let createPrice = document.getElementById("createPrice")
-let createManYear = document.getElementById("createManYear")
-let createArtImage = document.getElementById("createArtImage")
-let createArtBtn = document.getElementById("createArtBtn")
-let displayArtInfo = document.getElementById('displayArt')
-
-createArtBtn.addEventListener('click', () => {
-    artCollection.addArt(new Art(createTitle.value, createOwner.value, createPrice.value, createManYear.value, createArtImage.files))
-    console.log(artCollection)
-    let artCollectionArray = JSON.parse(localStorage.getItem("artCollectionArray"))
-    displayArtInfo.innerHTML = ""
-    for (let i = 0; i < artCollectionArray.length; i += 1) {
-        if(artCollectionArray.length > 2){
-            displayArtInfo.innerHTML += `
-            <img src="${artCollectionArray[i].artImage}" height="100" width="100" />
-            <div class="art-content">
-              <div class="art-info">
-                <h3>${artCollectionArray[i].title}</h3>
-                <p>${artCollectionArray[i].owner}</p>
-                <p>${artCollectionArray[i].manYear}</p>
-                <p>${artCollectionArray[i].price}</p>
-              </div>
-            </div>
-            `
-        }
-    }
-})
-
-let artCollection = new ArtList()
-console.log(artCollection)
-
-function displayArt() {
-    let artCollectionArray = JSON.parse(localStorage.getItem("artCollectionArray"))
-    for (let i = 0; i < artCollectionArray.length; i += 1) {
-        if(artCollectionArray.length < 3){
-            displayArtInfo.innerHTML += `
-            <img src="${artCollectionArray[i].artImage}" height="100" width="100" />
-            <div class="art-content">
-              <div class="art-info">
-                <h3>${artCollectionArray[i].title}</h3>
-                <p>${artCollectionArray[i].owner}</p>
-                <p>${artCollectionArray[i].manYear}</p>
-                <p>${artCollectionArray[i].price}</p>
-              </div>
-            </div>
-            `
-        }
-    }
-}
-
-displayArt()
-
-    //fetchArtInfo() {
-        //Funktion som fetchar manYear och artImage från API.
-    //}
 
 //Inloggningsfunktion/Utloggning - Jacob
 const username = document.getElementById("username");
@@ -123,7 +27,7 @@ document.getElementById("registrateArt").style.display = "none";
             document.getElementById("loginForm").style.display = "block";
           })
        }
- 
+       showLoginForm();
 
 if (localStorage.getItem("objUsers")) {
    //Do nothing
@@ -212,6 +116,103 @@ window.onload = reloadLoginStatus(localStorage.getItem("loginStatus"))
     document.getElementById("footer").style.display = "none";
   })
   
+
+const validateBtn = document.getElementById("validateBtn");
+const editBtn = document.getElementById("editBtn");
+const transferArtBtn = document.getElementById("transferArtBtn");
+const sendingUser = document.getElementById("sendingUser");
+const receiver= document.getElementById("receiver");
+const artID = document.getElementById("artID");
+const showTransferList = document.getElementById("showTransferList");
+
+//Klass för användare - Kristoffer
+    //Array med konstverk som användaren äger
+    //Kan skicka konstverket
+    //Kan ta emot konstverk
+    //Kan registrera konstverk
+    //Kan få ut lista på vilka konstverket äger
+
+//Användarlista - Kristoffer
+
+//Producera block - Sara
+    //Avnänd local storage som databas
+
+//Valideringsfunktion
+    //Registreringar av konstverk på användare
+
+//Klass för konstverk - Liza
+    //ID
+    //Vem som äger verket
+    //Titel
+    //Pris
+    //Ägare
+    //Tillverkningsår
+
+    // fetchArtInfo() {
+    //     //Funktion som fetchar manYear och artImage från API.
+    // }
+
+
+
+let createTitle = document.getElementById("createTitle")
+let createOwner = document.getElementById("createOwner")
+let createPrice = document.getElementById("createPrice")
+let createManYear = document.getElementById("createManYear")
+let createArtImage = document.getElementById("createArtImage")
+let createArtBtn = document.getElementById("createArtBtn")
+let displayArtInfo = document.getElementById('displayArt')
+
+createArtBtn.addEventListener('click', () => {
+    artCollection.addArt(new Art(createTitle.value, createOwner.value, createPrice.value, createManYear.value, createArtImage.files))
+    console.log(artCollection)
+    let artCollectionArray = JSON.parse(localStorage.getItem("artCollectionArray"))
+    displayArtInfo.innerHTML = ""
+    for (let i = 0; i < artCollectionArray.length; i += 1) {
+        if(artCollectionArray.length > 2){
+            displayArtInfo.innerHTML += `
+            <img src="${artCollectionArray[i].artImage}" height="100" width="100" />
+            <div class="art-content">
+              <div class="art-info">
+                <h3>${artCollectionArray[i].title}</h3>
+                <p>${artCollectionArray[i].owner}</p>
+                <p>${artCollectionArray[i].manYear}</p>
+                <p>${artCollectionArray[i].price}</p>
+              </div>
+            </div>
+            `
+        }
+    }
+})
+
+let artCollection = new ArtList()
+console.log(artCollection)
+
+function displayArt() {
+    let artCollectionArray = JSON.parse(localStorage.getItem("artCollectionArray"))
+    for (let i = 0; i < artCollectionArray.length; i += 1) {
+        if(artCollectionArray.length < 3){
+            displayArtInfo.innerHTML += `
+            <img src="${artCollectionArray[i].artImage}" height="100" width="100" />
+            <div class="art-content">
+              <div class="art-info">
+                <h3>${artCollectionArray[i].title}</h3>
+                <p>${artCollectionArray[i].owner}</p>
+                <p>${artCollectionArray[i].manYear}</p>
+                <p>${artCollectionArray[i].price}</p>
+              </div>
+            </div>
+            `
+        }
+    }
+}
+
+displayArt()
+
+    //fetchArtInfo() {
+        //Funktion som fetchar manYear och artImage från API.
+    //}
+
+
 //Skapa användare
 
 //Profil - Alexander och Felipe

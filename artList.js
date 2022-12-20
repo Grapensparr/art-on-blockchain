@@ -22,8 +22,8 @@ export default class ArtList {
     }
 
     addArt(art) {
+        localStorage.getItem("artCollectionArray")
         this.artCollection.push(art);
-        localStorage.removeItem("artCollectionArray")
         localStorage.setItem("artCollectionArray", JSON.stringify(this.artCollection))
     }
 

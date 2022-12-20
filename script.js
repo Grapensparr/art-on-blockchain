@@ -98,10 +98,12 @@ closeButton.addEventListener("click", () => {
       document.getElementById("aboutContent").style.display = "none";
       document.getElementById("instructionsContent").style.display = "none";
       document.getElementById("registrateArt").style.display = "block";
+      document.getElementById('displayArt').style.display = "block";
       logoutButton.addEventListener("click", () => {
         document.getElementById("aboutContent").style.display = "block";
         document.getElementById("instructionsContent").style.display = "block";
         document.getElementById("registrateArt").style.display = "none";
+        document.getElementById('displayArt').style.display = "none";
         localStorage.removeItem("loginStatus");
         localStorage.removeItem("currentLoggedIn");
     })
@@ -178,6 +180,7 @@ createArtBtn.addEventListener('click', () => {
                 <p>${artCollectionArray[i].manYear}</p>
                 <p>${artCollectionArray[i].price}</p>
               </div>
+              <button class="buyArt" data-id="${i}">Köp</button>
             </div>
             `
         }

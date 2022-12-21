@@ -45,9 +45,9 @@ function getLoginForm() {
 newAccount();         
 
 ///Login
-loginButton2.addEventListener("click", () => { 
-    login();
-})
+// loginButton2.addEventListener("click", () => { 
+//     login();
+// })
 
 //Close login form
 closeButton.addEventListener("click", () => {

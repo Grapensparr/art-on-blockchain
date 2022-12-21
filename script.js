@@ -75,8 +75,8 @@ let kristoffer = new User("Kristoffer", "hejhej");
 
 console.log(kristoffer);
 
-let currentUsers = new UserList("Site users");
-console.log("currentUsers", currentUsers);
+let userArray = new UserList("Site users");
+console.log("currentUsers", userArray);
 
 
 
@@ -85,7 +85,6 @@ let kristoffersArt = [
     {"title": "BAYC #123", "owner": "Kristoffer", "id": "asdfasdfasdfasdf", "price": 1000000, "manYear": 2018, "artImage": null},
     {"title": "En jättefin teckning", "owner": "Kristoffer", "id": "bksdkfdlsjgfsdlkhglfgj", "price": 10, "manYear": 1793, "artImage": null}
 ];
-
 
 console.log("kristoffersArt", kristoffersArt);
 
@@ -106,7 +105,6 @@ console.log(newArt.artImage);
 
 console.log(artCollection);
 
-
 janne.ownedArt = [
     {newArt},
     {"title": "Stjärnenatt", "owner": "Janne", "id": "fjbpdpdkf", "price": 9999999, "manYear": 1893, "artImage": null},
@@ -116,10 +114,9 @@ janne.ownedArt = [
 
 console.log("janne", janne);
 
-currentUsers.addUser(kristoffer);
-currentUsers.addUser(janne);
+userArray.addUser(kristoffer);
+userArray.addUser(janne);
 console.log("currnetUsers", currentUsers);
-
 
 let artChain = new Chain();
 

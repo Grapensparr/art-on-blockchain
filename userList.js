@@ -1,10 +1,14 @@
 export default class UserList {
-    constructor(name) {
-        this.name = name,
-        this.users = [];
+    constructor() {
+        this.userArray = [
+
+        ];
     }
 
-    addUser(newUser) {
-        this.users.push(newUser);
+    addUser(user) {
+        this.userArray.push(user);
+        localStorage.removeItem("userArray")
+        localStorage.setItem("userArray", JSON.stringify(this.userArray))
     }
+
 }

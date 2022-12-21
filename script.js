@@ -4,14 +4,11 @@ import Chain from './chain.js';
 import UserList from './userList.js';
 import ArtList from "./artList.js";
 import Art from "./art.js";
-import reloadLoginStatus from "./loginStatus.mjs";
+import reloadLoginStatus from "./logoutStatus.mjs";
 import registerArt from './registerArt.mjs';
-import login from './login.mjs';
-import createAccount from './newAccount.mjs';
-import showLoginForm from './showLoginForm.mjs';
+import displayArt from './displayArt.js';
+import newAccount from './newAccount.mjs';
 
-
-//Inloggningsfunktion/Utloggning - Jacob
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 const loginForm = document.getElementById("loginForm");
@@ -33,41 +30,31 @@ let createManYear = document.getElementById("createManYear");
 let createArtImage = document.getElementById("createArtImage");
 let createArtBtn = document.getElementById("createArtBtn");
 let displayArtInfo = document.getElementById('displayArt');
+const registrateArt = document.getElementById("registrateArt");
 
- //List of users
-let objUsers = [
-    {username:"sara", password:"test"},
-];
- 
-document.getElementById("registrateArt").style.display = "none";
+registrateArt.style.display = "none";
 
 //Login Form
-
-
-if (localStorage.getItem("objUsers")) {
-   //Do nothing
-} else {
-    localStorage.setItem('objUsers', JSON.stringify(objUsers));
+function getLoginForm() {
+    loginButton1.addEventListener("click", () => {
+    loginForm.style.display = "block";
+    })
 }
 
-
 //Create new account
-createButton.addEventListener("click", () => {
-    createAccount()
-    })
+newAccount();         
 
+///Login
 loginButton2.addEventListener("click", () => { 
- login()
+    login();
 })
 
+//Close login form
 closeButton.addEventListener("click", () => {
-    document.getElementById("loginForm").style.display = "none";
+    loginForm.style.display = "none";
   })
 
-
 window.onload = reloadLoginStatus(localStorage.getItem("loginStatus"))
-
-
 
   /// Footer cookies button
   cookiesButton.addEventListener("click", () => {
@@ -81,15 +68,15 @@ createArtBtn.addEventListener('click', () => {
 let artCollection = new ArtList()
 console.log(artCollection)
 
-displayArt()
-showLoginForm();
+displayArt();
+getLoginForm();
 
 let kristoffer = new User("Kristoffer", "hejhej");
 
 console.log(kristoffer);
 
-let currentUsers = new UserList("Site users");
-console.log("currentUsers", currentUsers);
+let userArray = new UserList("Site users");
+console.log("currentUsers", userArray);
 
 
 
@@ -98,7 +85,6 @@ let kristoffersArt = [
     {"title": "BAYC #123", "owner": "Kristoffer", "id": "asdfasdfasdfasdf", "price": 1000000, "manYear": 2018, "artImage": null},
     {"title": "En jättefin teckning", "owner": "Kristoffer", "id": "bksdkfdlsjgfsdlkhglfgj", "price": 10, "manYear": 1793, "artImage": null}
 ];
-
 
 console.log("kristoffersArt", kristoffersArt);
 
@@ -119,7 +105,6 @@ console.log(newArt.artImage);
 
 console.log(artCollection);
 
-
 janne.ownedArt = [
     {newArt},
     {"title": "Stjärnenatt", "owner": "Janne", "id": "fjbpdpdkf", "price": 9999999, "manYear": 1893, "artImage": null},
@@ -129,10 +114,9 @@ janne.ownedArt = [
 
 console.log("janne", janne);
 
-currentUsers.addUser(kristoffer);
-currentUsers.addUser(janne);
+userArray.addUser(kristoffer);
+userArray.addUser(janne);
 console.log("currnetUsers", currentUsers);
-
 
 let artChain = new Chain();
 
@@ -148,10 +132,7 @@ editBtn.addEventListener("click", () => {
     printTransfers();
 });
 
-
-
-
-
-
-
-
+// Remember latest location on reload
+if (window.location.reload) {
+    JSON.parse(localStorage.getItem("userArray"))
+  }

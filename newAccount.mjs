@@ -1,31 +1,27 @@
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const loginButton2 = document.getElementById("loginButton2");
+const createButton = document.getElementById("createButton");
 
-export default function createAccount() {
-    let newUser = document.getElementById("newUser").value;
-    let newPassword = document.getElementById("newPassword").value;
-    
+import User from './user.js';
+import UserList from './userList.js';
 
-    if (username == "") {
-        alert("Please enter Username");
-    }
-        else if (password == "") {
-            alert("Please enter Password");
-        }
-       
-        else {      
-            let objUsers = JSON.parse(localStorage.getItem("objUsers"));
-    
-            let newRegister = {
-                username: newUser,
-                password: newPassword
-            };
+export default function newAccount() {
+    let newUser = document.getElementById("newUser");
+    let newPassword = document.getElementById("newPassword");
 
-            objUsers.push(newRegister);
-        
-            localStorage.setItem("objUsers", JSON.stringify(objUsers));
-    
-            alert("Account created!");
+    createButton.addEventListener("click", () => {
+        userArray.addUser(new User(newUser.value, newPassword.value))
+        console.log(userArray)
+    })
+    let userArray = new UserList();
 
-            showLoginForm();
-           
-        }
-    }
+    loginButton2.addEventListener("click", async () => {
+        let foundUser = userArray.userArray.find(user => user.name === username.value);
+        let userId = await foundUser.checkPassword(password.value);
+        console.log("userId", userId);
+        foundUser.toggleStatus()
+        localStorage.setItem("userId", userId);
+        console.log("userList", userArray);
+    })
+}

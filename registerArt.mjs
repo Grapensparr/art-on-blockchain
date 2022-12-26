@@ -17,6 +17,9 @@ for (let i = 0; i < artCollectionArray.length; i += 1) {
           <button class="buyArt" data-id="${i}">Köp</button>
         </div>
         `
+        firstGallery.innerHTML += `
+        <img src="${artCollectionArray[i].artImage}" height="100" width="100" />
+        `
     }
 }
 }

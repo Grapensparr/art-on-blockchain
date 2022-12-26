@@ -1,4 +1,5 @@
 let displayArtInfo = document.getElementById('displayArt');
+let firstGallery = document.getElementById('firstGallery');
 
 export default function displayArt() {
     let artCollectionArray = JSON.parse(localStorage.getItem("artCollectionArray"))
@@ -14,6 +15,9 @@ export default function displayArt() {
                 <p>${artCollectionArray[i].price}</p>
               </div>
             </div>
+            `
+            firstGallery.innerHTML += `
+            <img src="${artCollectionArray[i].artImage}" height="150" width="150"/>
             `
         }
     }

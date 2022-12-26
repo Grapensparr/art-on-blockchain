@@ -1,5 +1,34 @@
 const username = document.getElementById("username");
 const loginForm = document.getElementById("loginForm");
+const logoutButton = document.getElementById("logoutButton");
+const registrateArt = document.getElementById("registrateArt");
+const body = document.body;
+
+const password = document.getElementById("password");
+const closeButton = document.getElementById("closeButton");
+const loginButton1 = document.getElementById("loginButton1");
+const loginButton2 = document.getElementById("loginButton2");
+const createButton = document.getElementById("createButton");
+const validateBtn = document.getElementById("validateBtn");
+const footer = document.getElementById("footer");
+const editBtn = document.getElementById("editBtn");
+const transferArtBtn = document.getElementById("transferArtBtn");
+const sendingUser = document.getElementById("sendingUser");
+const receiver= document.getElementById("receiver");
+const artID = document.getElementById("artID");
+const showTransferList = document.getElementById("showTransferList");
+let createTitle = document.getElementById("createTitle");
+let createOwner = document.getElementById("createOwner");
+let createPrice = document.getElementById("createPrice");
+let createManYear = document.getElementById("createManYear");
+let createArtImage = document.getElementById("createArtImage");
+let createArtBtn = document.getElementById("createArtBtn");
+let displayArtInfo = document.getElementById('displayArt');
+const aboutContent = document.getElementById("aboutContent")
+const instructionsContent = document.getElementById('instructionsContent')
+const loginSignup = document.getElementById('loginSignup')
+const pageContent = document.getElementById('pageContent')
+let gallery = document.getElementById('gallery')
 
 export default class User {
     constructor(name, password) {
@@ -33,30 +62,20 @@ export default class User {
         let testPassword = await this.consumePassword(password)
         console.log("testPassword", testPassword);
         if (testPassword === this.password) {
-            document.getElementById("aboutContent").style.display = "none";
-            document.getElementById("instructionsContent").style.display = "none";
-            document.getElementById("registrateArt").style.display = "block";
-            document.getElementById('displayArt').style.display = "block";
-            loginForm.style.display = "none"
+            body.append(logoutButton)
+            logoutButton.classList.remove("hidden")
+            body.append(registrateArt)
+            registrateArt.classList.remove("hidden")
+            pageContent.remove()
+            body.append(displayArtInfo)
+            gallery.remove()
             localStorage.setItem("loginStatus", "loggedIn");
             localStorage.setItem("currentLoggedIn", username.value);
             return this.id;
         } else {
             alert("User not found");
+            localStorage.setItem("loginStatus", "loggedOut")
             return false;
         }
     }
 }
-    
-    //transferArt() {
-        //Metod för att skicka konstverk
-        
-        //Användare väljer art i rullista
-
-        //Användare skriver in namn på mottagare
-
-        
-        //Användare klikcar på skicka
-            //Object dras ut från skickande användares array och pushas till mottagande användares array
-            //Detta sparas i ett block
-    //}

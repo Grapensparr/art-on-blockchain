@@ -2,23 +2,19 @@ const username = document.getElementById("username");
 const password = document.getElementById("password");
 const loginButton2 = document.getElementById("loginButton2");
 const createButton = document.getElementById("createButton");
-
 const displayArtInfo = document.getElementById('displayArt');
 const registrateArt = document.getElementById("registrateArt");
-const instructionsContent = document.getElementById("instructionsContent");
-const aboutContent = document.getElementById("aboutContent");
 const logoutButton = document.getElementById("logoutButton");
 const pageContent = document.getElementById('pageContent')
 const body = document.body;
-let gallery = document.getElementById('gallery')
+const gallery = document.getElementById('gallery')
+let newUser = document.getElementById("newUser");
+let newPassword = document.getElementById("newPassword");
 
 import User from './user.js';
 import UserList from './userList.js';
 
 export default function accountAction() {
-    let newUser = document.getElementById("newUser");
-    let newPassword = document.getElementById("newPassword");
-
     let userArray = new UserList
 
     createButton.addEventListener("click", () => {

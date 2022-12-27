@@ -16,6 +16,15 @@ let firstGallery = document.createElement("div");
 localStorage.getItem("loginStatus")
 let loggedInStatus = localStorage.getItem("loginStatus")
 
+let domReady = (cb) => {
+    document.readyState === 'interactive' || document.readyState === 'complete'? cb(): 
+    document.addEventListener('DOMContentLoaded', cb);
+}
+
+domReady(() => {
+    document.body.style.visibility = 'visible';
+});
+
 if (window.location.reload && loggedInStatus === "loggedIn") {
     body.append(logoutButton)
     logoutButton.classList.remove("hidden")

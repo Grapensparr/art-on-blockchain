@@ -70,6 +70,11 @@ createArtBtn.addEventListener("click", async () => {
       console.error(error);
       alert("Our artChain seems to be broken. Clear your LS and try again.");
     }
+    
+    displayofChain ();
+});
+
+function displayofChain () {
     let artChainArray = JSON.parse(localStorage.getItem('artChain'))
 
     artChainArray.artChain.map(chain => {
@@ -91,4 +96,6 @@ createArtBtn.addEventListener("click", async () => {
             "<img src=" + chain.data.artImage +" height='200' width='200' />"
             gallery.appendChild(firstGallery)
     })  
-});
+}
+
+displayofChain ()

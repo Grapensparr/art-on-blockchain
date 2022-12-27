@@ -16,11 +16,11 @@ export default class Chain {
     }
 
     async addTransfer() {
-        const title = localStorage.getItem('title');
+        const title = localStorage.getItem('createTitle');
         const owner = localStorage.getItem('currentLoggedIn');
         const id = self.crypto.randomUUID();
-        const price = Math.floor(1000 + Math.random() * 9000) + " SEK";
-        const manYear = localStorage.getItem('manYear');
+        const price = localStorage.getItem('createPrice'); + " SEK";
+        const manYear = localStorage.getItem('createManYear');
         const artImage = localStorage.getItem('artImage');
         const newTransfer = {title, owner, id, price, manYear, artImage};
 

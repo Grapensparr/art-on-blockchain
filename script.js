@@ -17,6 +17,10 @@ const validateChainBtn = document.getElementById("validateChain")
 const validationMessage = document.getElementById("validationMessage");
 let validationSuccessMessage = document.createElement("p");
 let validationFailMessage = document.createElement("p");
+const saveArtInfo = document.getElementById('randomizeImage')
+let createTitle = document.getElementById('createTitle');
+let createManYear = document.getElementById('createManYear');
+let createPrice = document.getElementById('createPrice');
 
 localStorage.getItem("loginStatus")
 let loggedInStatus = localStorage.getItem("loginStatus")
@@ -47,6 +51,15 @@ cookiesButton.addEventListener("click", () => {
   footer.remove()
 })
 
+saveArtInfo.addEventListener('click', () => {
+    localStorage.setItem('createTitle', createTitle.value);
+    localStorage.setItem('createManYear', createManYear.value);
+    localStorage.setItem('createPrice', createPrice.value);
+
+    createTitle.value = '';
+    createManYear.value = '';
+    createPrice.value = '';
+})
 
 createArtBtn.addEventListener("click", async () => {
     artDisplay.innerHTML = ''

@@ -42,6 +42,16 @@ const aboutContent = document.getElementById('aboutContent')
 const instructionsContent = document.getElementById('instructionsContent')
 const loginSignup = document.getElementById('loginSignup')
 
+let domReady = (cb) => {
+    document.readyState === 'interactive' || document.readyState === 'complete'
+? cb()
+: document.addEventListener('DOMContentLoaded', cb);
+}
+
+domReady(() => {
+    document.body.style.visibility = 'visible';
+});
+
 localStorage.getItem("loginStatus")
 let loggedInStatus = localStorage.getItem("loginStatus")
 

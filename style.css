@@ -7,6 +7,7 @@ body {
   font-family: "Space Grotesk", sans-serif;
   font-size: 1rem;
   overflow-x: hidden;
+  visibility: hidden;
 }
 body h2 {
   margin-top: 0px;

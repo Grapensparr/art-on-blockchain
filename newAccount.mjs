@@ -31,40 +31,27 @@ export default function accountAction() {
             } else {
             userArray = JSON.parse(localStorage.getItem('userArray'));
             }
-        console.log("userArray", userArray);
         let tempUser = new User(newUser.value, newPassword.value);
-        console.log("tempUser", tempUser);
         userArray.push(tempUser);
-        console.log("userArray after push", userArray);
-        // userArray.push("name": newUser.value, "password": newPassword.value);
         localStorage.setItem('userArray', JSON.stringify(userArray));
-        // JSON.parse(localStorage.getItem('userArray'));
     })
 
     loginButton2.addEventListener("click", () => {
-        console.log("loginButton2 event listener");
         userArray = JSON.parse(localStorage.getItem('userArray'));
-        console.log("userArray", userArray);
-        // let foundUser = userArray.userArray.find(user => user.name === username.value);
         const foundUser = userArray.find(function(userArray) {
             return userArray.name === username.value && userArray.password === password.value;
         })
 
-        console.log("foundUser", foundUser);
-
         if (foundUser) {
             let userId = foundUser.id;
-            console.log("userId", userId);
             foundUser.online = true;
-            console.log("foundUser after toggle", foundUser);
             localStorage.setItem("userId", userId);
             localStorage.setItem("loginStatus", "loggedIn");
-            localStorage.setItem("currentLoggedIn", userId);
+            localStorage.setItem("currentLoggedIn", foundUser.name);
             userLogsIn();
+        } else {
+            alert("User not found");
         }
-        // let userId = await foundUser.checkPassword(password.value);
-        // foundUser.toggleStatus()
-        // localStorage.setItem("userId", userId);
     })
 
     logoutButton.addEventListener("click", () => {

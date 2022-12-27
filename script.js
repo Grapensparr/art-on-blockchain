@@ -13,16 +13,6 @@ const displayArtSection = document.getElementById('displayArt')
 let artDisplay = document.createElement("div");
 let firstGallery = document.createElement("div");
 
-let domReady = (cb) => {
-    document.readyState === 'interactive' || document.readyState === 'complete'
-? cb()
-: document.addEventListener('DOMContentLoaded', cb);
-}
-
-domReady(() => {
-    document.body.style.visibility = 'visible';
-});
-
 localStorage.getItem("loginStatus")
 let loggedInStatus = localStorage.getItem("loginStatus")
 
@@ -89,7 +79,7 @@ createArtBtn.addEventListener("click", async () => {
 
         firstGallery.classList.add("firstGallery")
         firstGallery.innerHTML += 
-            "<img src=" + chain.data.artImage +" height='100' width='100' />"
+            "<img src=" + chain.data.artImage +" height='200' width='200' />"
             gallery.appendChild(firstGallery)
     })  
 });

@@ -5,9 +5,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   overflow-x: hidden;
-  visibility: hidden;
 }
 body h2 {
   margin-top: 0px;
@@ -54,7 +53,7 @@ header h1 {
   border: 3px solid #540b0e;
   border-radius: 10px;
   background-color: #5f358a;
-  color: rgb(29, 223, 213);
+  color: white;
 }
 .pageContent .instructions-content, .pageContent .loginSignup {
   margin-left: 20px;

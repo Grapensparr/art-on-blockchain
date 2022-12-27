@@ -1,32 +1,8 @@
 const username = document.getElementById("username");
-const loginForm = document.getElementById("loginForm");
 const logoutButton = document.getElementById("logoutButton");
 const registrateArt = document.getElementById("registrateArt");
 const body = document.body;
-
-const password = document.getElementById("password");
-const closeButton = document.getElementById("closeButton");
-const loginButton1 = document.getElementById("loginButton1");
-const loginButton2 = document.getElementById("loginButton2");
-const createButton = document.getElementById("createButton");
-const validateBtn = document.getElementById("validateBtn");
-const footer = document.getElementById("footer");
-const editBtn = document.getElementById("editBtn");
-const transferArtBtn = document.getElementById("transferArtBtn");
-const sendingUser = document.getElementById("sendingUser");
-const receiver= document.getElementById("receiver");
-const artID = document.getElementById("artID");
-const showTransferList = document.getElementById("showTransferList");
-let createTitle = document.getElementById("createTitle");
-let createOwner = document.getElementById("createOwner");
-let createPrice = document.getElementById("createPrice");
-let createManYear = document.getElementById("createManYear");
-let createArtImage = document.getElementById("createArtImage");
-let createArtBtn = document.getElementById("createArtBtn");
 let displayArtInfo = document.getElementById('displayArt');
-const aboutContent = document.getElementById("aboutContent")
-const instructionsContent = document.getElementById('instructionsContent')
-const loginSignup = document.getElementById('loginSignup')
 const pageContent = document.getElementById('pageContent')
 let gallery = document.getElementById('gallery')
 

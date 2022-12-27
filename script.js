@@ -1,4 +1,4 @@
-import accountAction from './newAccount.mjs';
+import accountAction from './accountAction.mjs';
 import Chain from './chain.js';
 import isChainValid from './isChainValid.js';
 

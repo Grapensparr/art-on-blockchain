@@ -9,7 +9,7 @@ let gallery = document.getElementById('gallery')
 export default class User {
     constructor(name, password) {
         this.name = name;
-        this.password = this.savePassword(password);
+        this.password = password;
         this.id = self.crypto.randomUUID();
         this.online = false;
         this.ownedArt = [];

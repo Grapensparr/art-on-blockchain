@@ -18,19 +18,31 @@ export default function accountAction() {
     let userArray = new UserList
 
     createButton.addEventListener("click", () => {
-        JSON.parse(localStorage.getItem('userArray'))
-        userArray.addUser(new User(newUser.value, newPassword.value))
-        localStorage.setItem('userArray', JSON.stringify(userArray))
-        JSON.parse(localStorage.getItem('userArray'))
+        JSON.parse(localStorage.getItem('userArray'));
+        userArray.addUser(new User(newUser.value, newPassword.value));
+        localStorage.setItem('userArray', JSON.stringify(userArray));
+        JSON.parse(localStorage.getItem('userArray'));
+        console.log("userArray after reg", userArray);
     })
 
-    loginButton2.addEventListener("click", async () => {
-        let foundUser = userArray.userArray.find(user => user.name === username.value);
-        let userId = await foundUser.checkPassword(password.value);
-        console.log("userId", userId);
-        foundUser.toggleStatus()
-        localStorage.setItem("userId", userId);
-        console.log("userList", userArray);
+    loginButton2.addEventListener("click", () => {
+        console.log("loginButton2 event listener");
+        // let foundUser = userArray.userArray.find(user => user.name === username.value);
+        const foundUser = userArray.userArray.find(function(userArray) {
+            return userArray.name === username.value && userArray.password === password.value;
+        })
+
+        console.log("foundUser", foundUser);
+
+        if (foundUser) {
+            console.log("Username and password match");
+            // console.log("foundUser id", foundUser.id);
+        } else {
+            console.log("Username and password do not match");
+        }
+        // let userId = await foundUser.checkPassword(password.value);
+        // foundUser.toggleStatus()
+        // localStorage.setItem("userId", userId);
     })
 
     logoutButton.addEventListener("click", () => {

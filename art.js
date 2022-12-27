@@ -1,9 +1,13 @@
+const createTitle = document.getElementById('createTitle');
+const createManYear = document.getElementById('createManYear');
+const createPrice = document.getElementById('createPrice');
+
 export default class Art {
     constructor(title, owner, manYear) {
         this.title = title;
         this.owner = owner;
         this.id = self.crypto.randomUUID();
-        localStorage.setItem("artId", this.id);
+        localStorage.setItem('artId', this.id);
         this.price = Math.floor(1000 + Math.random() * 9000);
         this.manYear = manYear;
         this.artImage = this.randomizeImage();
@@ -19,19 +23,24 @@ export default class Art {
           let randomObject = paintings.objectIDs[randomIndex];
           // logging the random number on click
       
-          const response2 = await fetch("https://collectionapi.metmuseum.org/public/collection/v1/objects/" + randomObject);
+          const response2 = await fetch('https://collectionapi.metmuseum.org/public/collection/v1/objects/' + randomObject);
           const painting = await response2.json();
           if(painting.primaryImage !== "") {
             this.artImage = painting.primaryImage;
-            localStorage.setItem('artImage', this.artImage)
+            localStorage.setItem('artImage', this.artImage);
             this.title = painting.title;
-            localStorage.setItem('title', this.title)
+            localStorage.setItem('title', this.title);
             this.manYear = painting.objectDate;
-            localStorage.setItem('manYear', this.manYear)
+            localStorage.setItem('manYear', this.manYear);
             /* et img = document.createElement("img");
             img.src = painting.primaryImage;
             img.classList = "image";
             body.appendChild(img); */
+
+            createTitle.value = '';
+            createManYear.value = '';
+            createPrice.value = '';
+
           } else {
             this.randomizeImage();
           }

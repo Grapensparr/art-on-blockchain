@@ -1,5 +1,5 @@
-import Art from "./art.js";
-import calculateHash from "./calculateHash.js";
+import Art from './art.js';
+import calculateHash from './calculateHash.js';
 
 export default class Transfer {
     constructor(data, newHash, prevHash) {
@@ -15,7 +15,7 @@ export default class Transfer {
     async mineBlock(difficulty) {
         let tryHash = await this.calculateHash();
 
-        while (!tryHash.toString().startsWith("0".repeat(difficulty))) {
+        while (!tryHash.toString().startsWith('0'.repeat(difficulty))) {
             this.nonce++;
             tryHash = await this.calculateHash(this.nonce);
         }

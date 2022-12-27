@@ -10,12 +10,11 @@ const body = document.body;
 const gallery = document.getElementById('gallery')
 let newUser = document.getElementById("newUser");
 let newPassword = document.getElementById("newPassword");
+const validationMessage = document.getElementById("validationMessage");
 
 import User from './user.js';
 import UserList from './userList.js';
 import userLogsIn from './userLogsIn.mjs';
-
-
 
 export default function accountAction() {
     let userArray;
@@ -63,5 +62,7 @@ export default function accountAction() {
         localStorage.removeItem("currentLoggedIn");
         localStorage.removeItem('userId');
         localStorage.setItem("loginStatus", "loggedOut");
+        validationMessage.remove()
+        body.append(validationMessage)
     })
 }

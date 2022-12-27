@@ -29,24 +29,4 @@ export default class Chain {
 
         this.artChain.push(new Transfer(newTransfer, newHash, prevHash));
     }
-
-    isChainValid() {
-        for (let i = 1; i < this.artChain.length; i++) {
-            const currentBlock = this.artChain[i];
-            const prevBlock = this.artChain[i -1];
-
-            let testHash = currentBlock.calculateHash().then(hash => {
-                console.log("testHash", hash);
-                if (currentBlock.hash !== hash) {
-                    console.log("Invalid. Not the same hash.", currentBlock.hash, hash);
-                }
-            });
-
-            if (currentBlock.prevHash !== prevBlock.hash) {
-                console.log("Invalid: Not same prev hash");
-            }
-
-            console.log("VALID");
-        }
-    }
 }

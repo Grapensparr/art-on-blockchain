@@ -80,12 +80,24 @@ header h1 {
 #gallery {
   display: relative;
   margin-left: 50px;
-  margin-bottom: 70px;
 }
 #gallery .firstGallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
+}
+
+#validationMessage {
+  display: absolute;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+#validationMessage .successNessage {
+  color: green;
+}
+#validationMessage .failNessage {
+  color: red;
 }
 
 .cookies-bar {

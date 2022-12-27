@@ -86,12 +86,26 @@ header {
 #gallery {
     display: relative;
     margin-left: 50px;
-    margin-bottom: 70px;
 
     .firstGallery {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
+    }
+}
+
+#validationMessage {
+    display: absolute;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+
+    .successNessage {
+        color: green;
+    }
+
+    .failNessage {
+        color: red;
     }
 }
 

@@ -68,13 +68,22 @@ header h1 {
   cursor: pointer;
 }
 
+.registerArt {
+  text-align: center;
+}
+
+.artDisplay {
+  margin: 30px;
+}
+
 #gallery {
   display: relative;
   margin-left: 50px;
   margin-bottom: 70px;
 }
-#gallery #firstGallery {
-  display: flex;
+#gallery .firstGallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 

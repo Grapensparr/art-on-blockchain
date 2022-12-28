@@ -91,7 +91,6 @@ createArtBtn.addEventListener('click', async () => {
 validateChainBtn.addEventListener('click', () => {
     if (localStorage.getItem('validation') === 'success') {
         validationSuccessMessage.style.color = 'darkgreen';
-        validationSuccessMessage.style.fontWeight = 'bold';
         validationSuccessMessage.innerHTML = 'The chain is valid!';
         validationMessage.appendChild(validationSuccessMessage);
 
@@ -103,7 +102,6 @@ validateChainBtn.addEventListener('click', () => {
 
     } else if (localStorage.getItem('validation') === 'failure') {
         validationFailMessage.style.color = 'darkred';
-        validationSuccessMessage.style.fontWeight = 'bold';
         validationFailMessage.innerHTML = 'The chain is invalid!';
         validationMessage.appendChild(validationFailMessage);
 

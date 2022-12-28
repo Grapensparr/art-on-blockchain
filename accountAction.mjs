@@ -44,6 +44,9 @@ export default function accountAction() {
             successMessage.remove();
             timeout = 0;
           }, 3000)
+
+          newUser.value = ''
+          newPassword.value = ''
     })
 
     loginButton2.addEventListener('click', () => {
@@ -59,6 +62,9 @@ export default function accountAction() {
             localStorage.setItem('loginStatus', 'loggedIn');
             localStorage.setItem('currentLoggedIn', foundUser.name);
             userLogsIn();
+
+            username.value = ''
+            password.value = ''
         } else {
             alert('User not found');
         }

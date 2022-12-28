@@ -14,6 +14,8 @@ const gallery = document.getElementById('gallery')
 const newUser = document.getElementById('newUser');
 const newPassword = document.getElementById('newPassword');
 const validationMessage = document.getElementById('validationMessage');
+const loginSignup = document.getElementById('loginSignup')
+const successMessage = document.createElement('p')
 
 export default function accountAction() {
     let userArray;
@@ -32,6 +34,16 @@ export default function accountAction() {
         let tempUser = new User(newUser.value, newPassword.value);
         userArray.push(tempUser);
         localStorage.setItem('userArray', JSON.stringify(userArray));
+
+        successMessage.style.color = 'white';
+        successMessage.innerHTML = 'Your account has been created. Please log in!';
+        loginSignup.appendChild(successMessage);
+
+        var timeout = 0;
+        timeout = setTimeout(function() {
+            successMessage.remove();
+            timeout = 0;
+          }, 3000)
     })
 
     loginButton2.addEventListener('click', () => {

@@ -10,7 +10,6 @@ const createArtBtn = document.getElementById('createArtBtn');
 const displayArtInfo = document.getElementById('displayArt');
 const gallery = document.getElementById('gallery');
 const pageContent = document.getElementById('pageContent');
-const displayArtSection = document.getElementById('displayArt');
 const artDisplay = document.createElement('div');
 const ownArt = document.createElement('div');
 const firstGallery = document.createElement('div');
@@ -19,6 +18,7 @@ const validationMessage = document.getElementById('validationMessage');
 const validationSuccessMessage = document.createElement('p');
 const validationFailMessage = document.createElement('p');
 const displayYourArt = document.getElementById('displayYourArt')
+const displayAllArt = document.getElementById('displayAllArt')
 
 let loggedInStatus = localStorage.getItem('loginStatus');
 logoutButton.remove();
@@ -48,6 +48,9 @@ cookiesButton.addEventListener('click', () => {
 })
 
 createArtBtn.addEventListener('click', async () => {
+    if (createTitle.value == "" || createManYear.value == "" || createPrice.value == ""){
+        alert('All input fields not filled in') 
+    } else {
     artDisplay.innerHTML = '';
     firstGallery.innerHTML = '';
     let chain;
@@ -79,7 +82,7 @@ createArtBtn.addEventListener('click', async () => {
 
     displayOwnArt ();
     displayofChain ();
-});
+}});
 
 validateChainBtn.addEventListener('click', () => {
     if (localStorage.getItem('validation') === 'success') {
@@ -158,7 +161,7 @@ function displayofChain () {
             '<p>New hash: ' + chain.newHash + '<p>' +
             '<button class="buyArt">Buy</button>' + 
             '<br><br>' + '<hr>' + '<br>';
-            displayArtSection.appendChild(artDisplay);
+            displayAllArt.appendChild(artDisplay);
 
         firstGallery.classList.add('firstGallery');
         firstGallery.innerHTML += 

@@ -57,6 +57,7 @@ createArtBtn.addEventListener('click', async () => {
     } else {
     artDisplay.innerHTML = '';
     firstGallery.innerHTML = '';
+    ownArt.innerHTML = ''
     let chain;
   
     try {

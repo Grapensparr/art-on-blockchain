@@ -5,7 +5,6 @@ const username = document.getElementById('username');
 const password = document.getElementById("password");
 const loginButton2 = document.getElementById('loginButton2');
 const createButton = document.getElementById('createButton');
-const displayArtInfo = document.getElementById('displayArt');
 const registrateArt = document.getElementById('registrateArt');
 const logoutButton = document.getElementById('logoutButton');
 const pageContent = document.getElementById('pageContent')
@@ -14,8 +13,10 @@ const gallery = document.getElementById('gallery')
 const newUser = document.getElementById('newUser');
 const newPassword = document.getElementById('newPassword');
 const validationMessage = document.getElementById('validationMessage');
-const loginSignup = document.getElementById('loginSignup')
-const successMessage = document.createElement('p')
+const loginSignup = document.getElementById('loginSignup');
+const successMessage = document.createElement('p');
+const displayYourArt = document.getElementById('displayYourArt');
+const displayAllArt = document.getElementById('displayAllArt');
 
 export default function accountAction() {
     let userArray;
@@ -73,7 +74,8 @@ export default function accountAction() {
     logoutButton.addEventListener('click', () => {
         body.append(pageContent);
         body.append(gallery);
-        displayArtInfo.remove();
+        displayYourArt.remove();
+        displayAllArt.remove();
         registrateArt.remove();
         logoutButton.remove();
         localStorage.removeItem('currentLoggedIn');

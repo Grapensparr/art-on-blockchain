@@ -1,3 +1,7 @@
+const createTitle = document.getElementById('createTitle');
+const createManYear = document.getElementById('createManYear');
+const createPrice = document.getElementById('createPrice');
+
 import Transfer from './transfer.js';
 import calculateHash from './calculateHash.js';
 
@@ -17,11 +21,11 @@ export default class Chain {
     }
 
     async addTransfer() {
-        const title = localStorage.getItem('createTitle');
+        const title = createTitle.value;
         const owner = localStorage.getItem('currentLoggedIn');
         const id = self.crypto.randomUUID();
-        const price = localStorage.getItem('createPrice'); + ' SEK';
-        const manYear = localStorage.getItem('createManYear');
+        const price = createPrice.value + ' SEK';
+        const manYear = createManYear.value;
         const artImage = localStorage.getItem('artImage');
         const newTransfer = {title, owner, id, price, manYear, artImage};
 

@@ -10,17 +10,19 @@ const createArtBtn = document.getElementById('createArtBtn');
 const displayArtInfo = document.getElementById('displayArt');
 const gallery = document.getElementById('gallery');
 const pageContent = document.getElementById('pageContent');
-const displayArtSection = document.getElementById('displayArt');
 const artDisplay = document.createElement('div');
+const ownArt = document.createElement('div');
 const firstGallery = document.createElement('div');
 const validateChainBtn = document.getElementById('validateChain');
 const validationMessage = document.getElementById('validationMessage');
 const validationSuccessMessage = document.createElement('p');
 const validationFailMessage = document.createElement('p');
-const saveArtInfo = document.getElementById('randomizeImage');
-const createTitle = document.getElementById('createTitle');
-const createManYear = document.getElementById('createManYear');
-const createPrice = document.getElementById('createPrice');
+const displayYourArt = document.getElementById('displayYourArt');
+const displayAllArt = document.getElementById('displayAllArt');
+const ownArtButton = document.getElementById('ownArtBtn');
+const ownArtTitle = document.getElementById('ownArtTitle')
+const allArtButton = document.getElementById('allArtBtn');
+const allArtTitle = document.getElementById('allArtTitle');
 
 let loggedInStatus = localStorage.getItem('loginStatus');
 logoutButton.remove();
@@ -49,13 +51,10 @@ cookiesButton.addEventListener('click', () => {
   footer.remove();
 })
 
-saveArtInfo.addEventListener('click', () => {
-    localStorage.setItem('createTitle', createTitle.value);
-    localStorage.setItem('createManYear', createManYear.value);
-    localStorage.setItem('createPrice', createPrice.value);
-})
-
 createArtBtn.addEventListener('click', async () => {
+    if (createTitle.value == "" || createManYear.value == "" || createPrice.value == ""){
+        alert('All input fields not filled in') 
+    } else {
     artDisplay.innerHTML = '';
     firstGallery.innerHTML = '';
     let chain;
@@ -85,8 +84,9 @@ createArtBtn.addEventListener('click', async () => {
       alert('Our artChain seems to be broken. Clear your LS and try again.');
     }
 
+    displayOwnArt ();
     displayofChain ();
-});
+}});
 
 validateChainBtn.addEventListener('click', () => {
     if (localStorage.getItem('validation') === 'success') {
@@ -124,6 +124,32 @@ validateChainBtn.addEventListener('click', () => {
     }
 })
 
+function displayOwnArt () {
+    const artChainArray = JSON.parse(localStorage.getItem('artChain'));
+    console.log(artChainArray)
+
+    const owner = localStorage.getItem('currentLoggedIn')
+    console.log(owner)
+
+    const filteredArray = artChainArray.artChain.filter(item => item.data.owner === owner)
+
+    console.log(filteredArray)
+
+    filteredArray.map(chain => {
+        ownArt.classList.add('artDisplay');
+            ownArt.innerHTML += 
+            '<img src=' + chain.data.artImage +' height="100" width="100" />' +
+            '<h3>Title: ' + chain.data.title + '</h3>' +
+            '<p>Created in ' + chain.data.manYear + '<p>' +
+            '<p>Owner: ' + chain.data.owner + '<p>' +
+            '<p>Price: ' + chain.data.price + '<p>' +
+            '<br><br>' + '<hr>' + '<br>';
+            displayYourArt.appendChild(ownArt)
+    })
+}
+
+displayOwnArt ();
+
 function displayofChain () {
     let artChainArray = JSON.parse(localStorage.getItem('artChain'));
 
@@ -139,7 +165,7 @@ function displayofChain () {
             '<p>New hash: ' + chain.newHash + '<p>' +
             '<button class="buyArt">Buy</button>' + 
             '<br><br>' + '<hr>' + '<br>';
-            displayArtSection.appendChild(artDisplay);
+            displayAllArt.appendChild(artDisplay);
 
         firstGallery.classList.add('firstGallery');
         firstGallery.innerHTML += 
@@ -149,3 +175,17 @@ function displayofChain () {
 }
 
 displayofChain ();
+
+ownArtButton.addEventListener('click', () => {
+    artDisplay.remove();
+    allArtTitle.remove();
+    displayYourArt.appendChild(ownArtTitle);
+    displayYourArt.appendChild(ownArt);
+});
+
+allArtButton.addEventListener('click', () => {
+    displayAllArt.appendChild(allArtTitle);
+    displayAllArt.appendChild(artDisplay);
+    ownArt.remove();
+    ownArtTitle.remove()
+});

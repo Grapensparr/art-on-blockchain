@@ -6,6 +6,7 @@ const pageContent = document.getElementById('pageContent');
 const gallery = document.getElementById('gallery');
 const displayYourArt = document.getElementById('displayYourArt');
 const displayAllArt = document.getElementById('displayAllArt');
+const ownArtTitle = document.getElementById('ownArtTitle');
 
 export default function userLogsIn() {
     body.append(logoutButton);
@@ -13,7 +14,7 @@ export default function userLogsIn() {
     body.append(registrateArt);
     registrateArt.classList.remove('hidden');
     pageContent.remove();
-    body.append(displayYourArt);
-    body.append(displayAllArt)
+    displayYourArt.remove();
+    body.append(displayAllArt);
     gallery.remove();
 }

@@ -20,7 +20,7 @@ const validationFailMessage = document.createElement('p');
 const displayYourArt = document.getElementById('displayYourArt');
 const displayAllArt = document.getElementById('displayAllArt');
 const ownArtButton = document.getElementById('ownArtBtn');
-const ownArtTitle = document.getElementById('ownArtTitle')
+const ownArtTitle = document.getElementById('ownArtTitle');
 const allArtButton = document.getElementById('allArtBtn');
 const allArtTitle = document.getElementById('allArtTitle');
 
@@ -129,7 +129,6 @@ function displayOwnArt () {
     console.log(artChainArray)
 
     const owner = localStorage.getItem('currentLoggedIn')
-    console.log(owner)
 
     const filteredArray = artChainArray.artChain.filter(item => item.data.owner === owner)
 

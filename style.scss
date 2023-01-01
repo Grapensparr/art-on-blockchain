@@ -94,6 +94,11 @@ header {
     }
 }
 
+#buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
 #validationMessage {
     display: absolute;
     margin-top: 20px;

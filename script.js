@@ -17,8 +17,12 @@ const validateChainBtn = document.getElementById('validateChain');
 const validationMessage = document.getElementById('validationMessage');
 const validationSuccessMessage = document.createElement('p');
 const validationFailMessage = document.createElement('p');
-const displayYourArt = document.getElementById('displayYourArt')
-const displayAllArt = document.getElementById('displayAllArt')
+const displayYourArt = document.getElementById('displayYourArt');
+const displayAllArt = document.getElementById('displayAllArt');
+const ownArtButton = document.getElementById('ownArtBtn');
+const ownArtTitle = document.getElementById('ownArtTitle')
+const allArtButton = document.getElementById('allArtBtn');
+const allArtTitle = document.getElementById('allArtTitle');
 
 let loggedInStatus = localStorage.getItem('loginStatus');
 logoutButton.remove();
@@ -171,3 +175,17 @@ function displayofChain () {
 }
 
 displayofChain ();
+
+ownArtButton.addEventListener('click', () => {
+    artDisplay.remove();
+    allArtTitle.remove();
+    displayYourArt.appendChild(ownArtTitle);
+    displayYourArt.appendChild(ownArt);
+});
+
+allArtButton.addEventListener('click', () => {
+    displayAllArt.appendChild(allArtTitle);
+    displayAllArt.appendChild(artDisplay);
+    ownArt.remove();
+    ownArtTitle.remove()
+});

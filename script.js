@@ -7,7 +7,6 @@ const registrateArt = document.getElementById('registrateArt');
 const body = document.body;
 const footer = document.getElementById('footer');
 const createArtBtn = document.getElementById('createArtBtn');
-const displayArtInfo = document.getElementById('displayArt');
 const gallery = document.getElementById('gallery');
 const pageContent = document.getElementById('pageContent');
 const artDisplay = document.createElement('div');
@@ -42,7 +41,6 @@ if (window.location.reload && loggedInStatus === 'loggedIn') {
     body.append(registrateArt);
     pageContent.remove();
     gallery.remove();
-    body.append(displayArtInfo);
 }
 
 accountAction();

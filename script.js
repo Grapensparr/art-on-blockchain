@@ -51,42 +51,34 @@ cookiesButton.addEventListener('click', () => {
   footer.remove();
 })
 
+const newArtChain = localStorage.getItem('artChain');
+
+if (!newArtChain) {
+    let chain = new Chain();
+    chain.createGenesisTransfer();
+    localStorage.setItem('artChain', JSON.stringify(chain));
+}
+
 createArtBtn.addEventListener('click', async () => {
     if (createTitle.value == "" || createManYear.value == "" || createPrice.value == ""){
         alert('All input fields not filled in') 
     } else {
-    artDisplay.innerHTML = '';
-    firstGallery.innerHTML = '';
-    ownArt.innerHTML = ''
-    let chain;
-  
-    try {
-      const newArtChain = localStorage.getItem('artChain');
-  
-        if (!newArtChain) {
-            chain = new Chain();
-  
-            localStorage.setItem('artChain', JSON.stringify(chain));
-  
-        } else {
-            chain = JSON.parse(localStorage.getItem('artChain'));
-            Object.setPrototypeOf(chain, Chain.prototype);
-    
-            await chain.addTransfer();
-    
-            localStorage.setItem('artChain', JSON.stringify(chain));
-            
-            isChainValid(chain);
-        }
-    }
+        artDisplay.innerHTML = '';
+        firstGallery.innerHTML = '';
+        ownArt.innerHTML = ''
+        
+        let chain = JSON.parse(localStorage.getItem('artChain'));
+        
+        Object.setPrototypeOf(chain, Chain.prototype);
 
-    catch (error) {
-      console.error(error);
-      alert('Our artChain seems to be broken. Clear your LS and try again.');
-    }
+        await chain.addTransfer();
 
-    displayOwnArt ();
-    displayofChain ();
+        localStorage.setItem('artChain', JSON.stringify(chain));
+
+        isChainValid(chain);
+    
+        displayOwnArt ();
+        displayofChain ();
 }});
 
 validateChainBtn.addEventListener('click', () => {

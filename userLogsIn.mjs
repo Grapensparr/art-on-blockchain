@@ -14,7 +14,7 @@ export default function userLogsIn() {
     body.append(registrateArt);
     registrateArt.classList.remove('hidden');
     pageContent.remove();
-    displayYourArt.remove();
+    body.append(displayYourArt);
     body.append(displayAllArt);
     gallery.remove();
 }
